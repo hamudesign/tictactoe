@@ -12,6 +12,12 @@ object Main {
     // Create our player pieces
 
     val game = new Game(Board.initFreshBoard, true, 'X')
+    println("Possible board choices are")
+    println("0|1|2")
+    println("-----")
+    println("3|4|5")
+    println("-----")
+    println("6|7|8")
 
     while(game.isActive) {
       if (game.turn == 'X') {

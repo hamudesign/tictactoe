@@ -2,9 +2,9 @@ package design.hamu
 
 //   Y
 //   ^
-// 2 | _ _ _
-// 1 | _ _ _
 // 0 | _ _ _
+// 1 | _ _ _
+// 2 | _ _ _
 //   +-------> X
 //     0 1 2
 
@@ -28,7 +28,7 @@ class Board(var vecofvec: Vector[Vector[Char]]) {
   // returns tilde if out of bounds
   def get(x: Int, y: Int): Char = {
     try {
-      vecofvec(x)(y)
+      vecofvec(y)(x)
     } catch {
       case x: IndexOutOfBoundsException => '~'
     }
@@ -36,11 +36,11 @@ class Board(var vecofvec: Vector[Vector[Char]]) {
 
   def stringify(): String = {
     var out = ""
-    for (x <- 0 to 2) {
-      for (y <- 0 to 2) {
+    for (y <- 0 to 2) {
+      for (x <- 0 to 2) {
         out = out + this.get(x, y).toString
       }
-      if (x != 2) {
+      if (y != 2) {
         out = out + "\n"
       }
     }
