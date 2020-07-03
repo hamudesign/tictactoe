@@ -7,12 +7,12 @@ class Game(var board: Board, var isActive: Boolean, var turn: Char) {
   }
 
   def isMoveValid (inputPosition: String) : Boolean = {
-    val x, y: (Int, Int) = convertToCoordinates(inputPosition)
+    val (x, y): (Int, Int) = convertToCoordinates(inputPosition)
     board.get(x, y) == '_'
   }
 
   def input(inputPosition: String) : Board = {
-    val x, y: (Int, Int) = convertToCoordinates(inputPosition)
+    val (x, y): (Int, Int) = convertToCoordinates(inputPosition)
     board.move(x, y, turn)
   }
 
