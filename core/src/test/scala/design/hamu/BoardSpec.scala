@@ -22,14 +22,5 @@ class BoardSpec extends AnyWordSpec with Matchers {
     "respect immutability" in {
       b.stringify() must equal("___\n___\n___")
     }
-
-    val bTwoMove = bOneMove.move(3, -1, 'X')
-    "gracefully handle an out of bounds move" in {
-      bTwoMove.stringify() must equal(bOneMove.stringify())
-    }
-
-    "gracefully handle a requested space that is out of bounds" in {
-      bOneMove.get(-1, 3) must equal('~')
-    }
   }
 }
