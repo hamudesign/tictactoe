@@ -2,9 +2,9 @@ package design.hamu
 
 //   Y
 //   ^
-// 2 | _ _ _
-// 1 | _ _ _
 // 0 | _ _ _
+// 1 | _ _ _
+// 2 | _ _ _
 //   +-------> X
 //     0 1 2
 
@@ -22,11 +22,11 @@ class Board(val vecofvec: Vector[Vector[Char]]) {
   // public function. call to retrieve the piece in a given coordinate.
   // returns tilde if out of bounds
   def get(x: Int, y: Int): Char = {
-    vecofvec(x)(y)
+    vecofvec(y)(x)
   }
 
   def stringify(): String = {
-    vecofvec(0).mkString+"\n"+vecofvec(1).mkString+"\n"+vecofvec(2).mkString
+    vecofvec(0).mkString + "\n" + vecofvec(1).mkString + "\n" + vecofvec(2).mkString
   }
 }
 
@@ -34,6 +34,6 @@ object Board {
 
   // public function. inits a perfectly fresh board.
   def initFreshBoard: Board = {
-    new Board( Vector.fill(3)(Vector.fill(3)('_')) )
+    new Board(Vector.fill(3)(Vector.fill(3)('_')))
   }
 }
