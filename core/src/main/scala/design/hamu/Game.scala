@@ -14,7 +14,7 @@ class Game(var board: Board, var isActive: Boolean, var turn: Char) {
   def input(inputPosition: String): Game = {
     val (x, y): (Int, Int) = convertToCoordinates(inputPosition)
     val b2 = board.move(x, y, turn)
-    new Game(b2, isActive, if(turn == 'O') 'X' else 'O')
+    new Game(b2, isActive, if (turn == 'O') 'X' else 'O')
   }
 
 }

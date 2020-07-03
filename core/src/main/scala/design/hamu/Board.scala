@@ -26,7 +26,7 @@ class Board(val vecofvec: Vector[Vector[Char]]) {
   }
 
   def stringify(): String = {
-    vecofvec(0).mkString+"\n"+vecofvec(1).mkString+"\n"+vecofvec(2).mkString
+    vecofvec(0).mkString + "\n" + vecofvec(1).mkString + "\n" + vecofvec(2).mkString
   }
 }
 
@@ -34,6 +34,6 @@ object Board {
 
   // public function. inits a perfectly fresh board.
   def initFreshBoard: Board = {
-    new Board( Vector.fill(3)(Vector.fill(3)('_')) )
+    new Board(Vector.fill(3)(Vector.fill(3)('_')))
   }
 }
