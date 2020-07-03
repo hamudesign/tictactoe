@@ -11,7 +11,7 @@ object Main {
     val playerTwoName: String = readLine()
     // Create our player pieces
 
-    val game = new Game(Board.initFreshBoard, true, 'X')
+    var game = new Game(Board.initFreshBoard, true, 'X')
     println("Possible board choices are")
     println("0|1|2")
     println("-----")
@@ -19,28 +19,19 @@ object Main {
     println("-----")
     println("6|7|8")
 
-    while(game.isActive) {
+    while (game.isActive) {
       if (game.turn == 'X') {
         println(s"It is $playerOneName's turn, please give a value of 0-8 to place your piece")
-        val move = readLine()
-        if (game.isMoveValid(move)) {
-          game.board = game.input(move)
-          game.turn = 'O'
-        } else {
-          println("This play is not valid")
-        }
-        println(game.board.stringify())
       } else if (game.turn == 'O') {
         println(s"It is $playerTwoName's's turn, please give a value of 0-8 to place your piece")
-        val move = readLine()
-        if (game.isMoveValid(move)) {
-          game.board = game.input(move)
-          game.turn = 'X'
-        } else {
-          println("This play is not valid")
-        }
-        println(game.board.stringify())
       }
+      val move = readLine()
+      if (game.isMoveValid(move)) {
+        game = game.input(move)
+      } else {
+        println("This play is not valid")
+      }
+      println(game.board.stringify())
     }
   }
 }
